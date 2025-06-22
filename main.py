@@ -33,8 +33,8 @@ def check_stock():
 
     wait = WebDriverWait(driver, 15)
 
-    # 1. Wait for the pincode input to appear
-    pincode_input = wait.until(EC.presence_of_element_located((By.ID, "search")))
+    # Wait until the pincode input is clickable (not just present)
+    pincode_input = wait.until(EC.element_to_be_clickable((By.ID, "search")))
     pincode_input.clear()
     pincode_input.send_keys(PINCODE)
     time.sleep(1)  # Wait for dropdown to appear
