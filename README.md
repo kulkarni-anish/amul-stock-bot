@@ -1,4 +1,4 @@
-# Amul Stock Notifier Bot
+# Amul Stock Notifier
 
 This project monitors the [Amul Protein](https://shop.amul.com/en/browse/protein) page and sends you an email notification when selected whey protein products are back in stock for your delivery pincode.
 
@@ -30,7 +30,7 @@ Create a `.env` file in the project root with the following content:
 EMAIL=your_email@gmail.com
 PASSWORD=your_email_app_password
 TO_EMAIL=recipient_email@gmail.com
-PINCODE=400060
+PINCODE=your_pincode
 ```
 - Use a Gmail **App Password** (not your regular password) for `PASSWORD`.
 - Set `TO_EMAIL` to your recipient address (can be the same as `EMAIL`).
