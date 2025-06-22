@@ -20,9 +20,9 @@ TO_EMAIL = os.environ.get('TO_EMAIL')
 
 PRODUCT_NAMES = [
     "Amul Whey Protein, 32 g | Pack of 30 Sachets",
-    "Amul Whey Protein Gift Pack, 32 g | Pack of 10 sachets",
+    "Amul Whey Protein, 32 g | Pack of 60 Sachets",
     "Amul Chocolate Whey Protein, 34 g | Pack of 30 sachets",
-    "Amul Kool Protein Milkshake | Kesar, 180 mL | Pack of 8"
+    "Amul Chocolate Whey Protein, 34 g | Pack of 60 sachets"
 ]
 
 def check_stock():
