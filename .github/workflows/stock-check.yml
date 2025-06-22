@@ -20,29 +20,23 @@ jobs:
 
       - name: Install dependencies
         run: |
-          set -ex
           pip install -r requirements.txt
 
-      - name: Install Chrome 114
-        run: |
-          set -ex
-          wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_114.0.5735.90-1_amd64.deb
-          sudo apt install -y ./google-chrome-stable_114.0.5735.90-1_amd64.deb
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@v1
 
-      - name: Install ChromeDriver 114
-        run: |
-          set -ex
-          wget -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
-          unzip /tmp/chromedriver.zip -d /tmp
-          sudo mv /tmp/chromedriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
+      - name: Set up ChromeDriver
+        uses: nanasess/setup-chromedriver@v2
 
-      - name: Run script with debug
+      - name: Check Chrome/Driver versions
+        run: |
+          google-chrome --version
+          chromedriver --version
+
+      - name: Run script
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
           PINCODE: ${{ secrets.PINCODE }}
-        run: |
-          set -ex
-          python main.py
+        run: python main.py
