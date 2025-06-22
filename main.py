@@ -27,7 +27,7 @@ PRODUCT_NAMES = [
 
 def check_stock():
     options = Options()
-    # options.add_argument('--headless')  # Remove this line if you want to see the browser
+    options.add_argument('--headless')  # Remove this line if you want to see the browser
     driver = webdriver.Chrome(options=options)
     driver.get(PRODUCT_URL)
 
