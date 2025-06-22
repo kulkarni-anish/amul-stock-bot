@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 PRODUCT_URL = "https://shop.amul.com/en/browse/protein"
-PINCODE = os.environ.get('PINCODE')  # Default to 400060 if not set
+PINCODE = os.environ.get('PINCODE')
 EMAIL = os.environ.get('EMAIL')
 PASSWORD = os.environ.get('PASSWORD')
 TO_EMAIL = os.environ.get('TO_EMAIL')
