@@ -1,4 +1,4 @@
-# Amul Stock Notifier Bot
+# Amul Stock Notifier
 
 This project monitors the [Amul Protein](https://shop.amul.com/en/browse/protein) page and sends you an email notification when selected whey protein products are back in stock for your delivery pincode.
 
