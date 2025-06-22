@@ -18,17 +18,26 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies and Chrome
+      - name: Install dependencies
         run: |
           set -ex
           pip install -r requirements.txt
-          sudo apt-get update
-          sudo apt-get install -y wget unzip
+
+      - name: Install Chrome
+        run: |
+          set -ex
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install -y ./google-chrome-stable_current_amd64.deb
-          wget -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE | head -n 1)/chromedriver_linux64.zip
+
+      - name: Install matching ChromeDriver
+        run: |
+          set -ex
+          CHROME_VERSION=$(google-chrome --version | grep -oP '\\d+\\.\\d+\\.\\d+')
+          DRIVER_VERSION=$(curl -sS https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json | \
+            python3 -c "import sys, json; print(json.load(sys.stdin)['channels']['Stable']['version'])")
+          wget -O /tmp/chromedriver.zip https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${DRIVER_VERSION}/linux64/chromedriver-linux64.zip
           unzip /tmp/chromedriver.zip -d /tmp
-          sudo mv /tmp/chromedriver /usr/local/bin/
+          sudo mv /tmp/chromedriver-linux64/chromedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/chromedriver
 
       - name: Run script with debug
