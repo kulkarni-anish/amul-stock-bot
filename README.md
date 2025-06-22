@@ -36,10 +36,6 @@ PINCODE=your_pincode
 - Set `TO_EMAIL` to your recipient address (can be the same as `EMAIL`).
 - Set `PINCODE` to your delivery area.
 
-### 4. Install ChromeDriver
-- Download [ChromeDriver](https://sites.google.com/chromium.org/driver/) matching your Chrome version.
-- Add it to your system PATH or specify its path in the script if needed.
-
 ---
 
 ## Usage
@@ -56,20 +52,13 @@ python main.py
 
 1. **Push your code to GitHub.**
 2. **Add your secrets** (`EMAIL`, `PASSWORD`, `TO_EMAIL`, `PINCODE`) in your repo's Settings → Secrets and variables → Actions.
-3. **Add the provided workflow file** in `.github/workflows/stock-check.yml` to run the script every 10 minutes.
+3. **Add the provided workflow file** in `.github/workflows/stock-check.yml` to run the script every 12 hours.
 
 ---
 
 ## Security
 - **Never commit your real `.env` file or app passwords.**
 - Use GitHub Secrets for sensitive data in CI/CD.
-
----
-
-## Troubleshooting
-- If you get authentication errors, make sure you are using an App Password and have enabled 2FA on your Gmail account.
-- If Selenium cannot find ChromeDriver, ensure it is installed and in your PATH.
-- For merge or push errors, see the GitHub/Git troubleshooting section above.
 
 ---
 
